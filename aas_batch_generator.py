@@ -126,6 +126,38 @@ def make_documentation_submodel(uid) -> Submodel:
     return sm
 
 
+def make_mqttbroker_submodel(uid) -> Submodel:
+    """Create MQTT broker configuration submodel."""
+    sm = Submodel(id_=f"https://example.com/submodel/MQTTBrokerConfig_{uid}", id_short="MQTTBrokerConfig")
+    for elem in [
+        Property(id_short="Address", value_type=datatypes.String, value="mqtt://broker.hivemq.com"),
+        Property(id_short="Topic", value_type=datatypes.String, value=f"aas/status/{uid}")
+    ]:
+        sm.submodel_element.add(elem)
+    return sm
+
+
+def make_event_submodel(uid) -> Submodel:
+    """Create BasicEventElement submodel for machine status changes."""
+    sm = Submodel(id_=f"https://example.com/submodel/StatusEvent_{uid}")
+    event = model.BasicEventElement(
+        id_short="StatusChangeEvent",
+        observed=ModelReference.from_keys([
+            model.Key(type_=model.KeyTypes.SUBMODEL, value=f"https://example.com/submodel/Operation_{uid}"),
+            model.Key(type_=model.KeyTypes.PROPERTY, value="MachineStatus"),
+        ]),
+        direction="output",
+        state="on",
+        message_topic=f"aas/status/{uid}",
+        message_broker=ModelReference.from_keys([
+            model.Key(type_=model.KeyTypes.SUBMODEL, value=f"https://example.com/submodel/MQTTBrokerConfig_{uid}")
+        ]),
+        min_interval="PT1S",
+    )
+    sm.submodel_element.add(event)
+    return sm
+
+
 # 3. AAS 인스턴스 생성 및 개별 JSON 저장
 for i, row in df_all.iterrows():
     equipment_id_raw = str(row["Equipment"])
@@ -140,7 +172,9 @@ for i, row in df_all.iterrows():
         make_category_submodel(row, uid),
         make_operation_submodel(uid),
         make_technicaldata_submodel(row, uid),
-        make_documentation_submodel(uid)
+        make_documentation_submodel(uid),
+        make_mqttbroker_submodel(uid),
+        make_event_submodel(uid)
     ]
 
     aas = AssetAdministrationShell(
