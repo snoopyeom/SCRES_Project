@@ -32,7 +32,12 @@ def ref_from_keys(keys):
     """
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
-    return ModelReference(keys=keys)
+    try:
+        # Older SDK versions expect ``keys`` as keyword argument
+        return ModelReference(keys=keys)
+    except TypeError:
+        # Newer versions take the keys sequence as positional argument
+        return ModelReference(keys)
 
 def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
     return MultiLanguageProperty(id_short=id_short, value=LangStringSet({lang: str(text)}))
