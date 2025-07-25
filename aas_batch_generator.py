@@ -12,7 +12,7 @@ from basyx.aas.model import (
     AssetAdministrationShell,
     ModelReference
 )
-from basyx.aas.model.base import LangStringSet
+from basyx.aas.model.base import LangStringSet, Direction, StateOfEvent
 from basyx.aas.model.provider import DictObjectStore
 from basyx.aas.adapter.json import write_aas_json_file
 
@@ -173,8 +173,8 @@ def make_event_submodel(uid) -> Submodel:
             model.Key(type_=model.KeyTypes.SUBMODEL, value=f"https://example.com/submodel/Operation_{uid}"),
             model.Key(type_=model.KeyTypes.PROPERTY, value="MachineStatus"),
         ]),
-        direction="output",
-        state="on",
+        direction=Direction.OUTPUT,
+        state=StateOfEvent.ON,
         message_topic=f"aas/status/{uid}",
         message_broker=ref_from_keys([
             model.Key(type_=model.KeyTypes.SUBMODEL, value=f"https://example.com/submodel/MQTTBrokerConfig_{uid}")
