@@ -23,21 +23,20 @@ def sanitize_id_short(s: str) -> str:
         s = "X_" + s
     return s
 
+from basyx.aas.model.reference import ReferenceTypes
+
 def ref_from_keys(keys):
     """Return a ``ModelReference`` built from ``keys``.
 
-    Some versions of ``basyx`` expose ``ModelReference.from_keys`` while others
-    expect the keys in the constructor.  This helper provides a consistent
-    interface across versions.
+    ``basyx`` 버전마다 ``ModelReference`` 초기화 방식이 달라 이를 호환하기
+    위해 사용되는 헬퍼 함수이다. ``ModelReference.from_keys``가 존재하면 그걸
+    사용하고, 그렇지 않은 경우에는 타입을 명시하여 ``ModelReference``를 직접
+    생성한다.
     """
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
-    try:
-        # Older SDK versions expect ``keys`` as keyword argument
-        return ModelReference(keys=keys)
-    except TypeError:
-        # Newer versions take the keys sequence as positional argument
-        return ModelReference(keys)
+    ref_type = ReferenceTypes.SUBMODEL if len(keys) == 1 else ReferenceTypes.SUBMODELELEMENT
+    return ModelReference(ref_type, keys)
 
 def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
     return MultiLanguageProperty(id_short=id_short, value=LangStringSet({lang: str(text)}))
