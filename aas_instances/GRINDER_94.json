@@ -1,0 +1,265 @@
+{
+  "assetAdministrationShells": [
+    {
+      "modelType": "AssetAdministrationShell",
+      "id": "https://example.com/aas/GRINDER_94",
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": "http://example.com/asset/GRINDER_94"
+      },
+      "submodels": [
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Category_GRINDER_94"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Operation_GRINDER_94"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Nameplate_GRINDER_94"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/HandoverDocumentation_GRINDER_94"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/TechnicalData_GRINDER_94"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Nameplate_GRINDER_94",
+      "submodelElements": [
+        {
+          "idShort": "URIOfTheProduct",
+          "modelType": "Property",
+          "value": "http://example.com/product",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ManufacturerName",
+          "modelType": "MultiLanguageProperty",
+          "value": [
+            {
+              "language": "en",
+              "text": "Hauser"
+            }
+          ]
+        },
+        {
+          "idShort": "ManufacturerProductDesignation",
+          "modelType": "MultiLanguageProperty",
+          "value": [
+            {
+              "language": "en",
+              "text": "s35-400"
+            }
+          ]
+        },
+        {
+          "idShort": "AddressInformation",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "Street",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "196 Alwine Rd, Saxonburg, Pennsylvania"
+                }
+              ]
+            },
+            {
+              "idShort": "Zipcode",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "00000"
+                }
+              ]
+            },
+            {
+              "idShort": "CityTown",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "N/A"
+                }
+              ]
+            },
+            {
+              "idShort": "NationalCode",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "KR"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "idShort": "OrderCodeOfManufacturer",
+          "modelType": "Property",
+          "value": "NA",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "SerialNumber",
+          "modelType": "Property",
+          "value": "GRINDER",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "YearOfConstruction",
+          "modelType": "Property",
+          "value": "2024",
+          "valueType": "xs:string"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Category_GRINDER_94",
+      "submodelElements": [
+        {
+          "idShort": "MachineType",
+          "modelType": "Property",
+          "value": "그라인더",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "MachineRole",
+          "modelType": "Property",
+          "value": "Production",
+          "valueType": "xs:string"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Operation_GRINDER_94",
+      "submodelElements": [
+        {
+          "idShort": "MachineStatus",
+          "modelType": "Property",
+          "value": "Running",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ProcessOrder",
+          "modelType": "Property",
+          "value": "1",
+          "valueType": "xs:int"
+        },
+        {
+          "idShort": "ProcessID",
+          "modelType": "Property",
+          "value": "P001",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ReplacedAASID",
+          "modelType": "Property",
+          "value": "None",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "Candidate",
+          "modelType": "Property",
+          "value": "true",
+          "valueType": "xs:boolean"
+        },
+        {
+          "idShort": "Selected",
+          "modelType": "Property",
+          "value": "false",
+          "valueType": "xs:boolean"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/TechnicalData_GRINDER_94",
+      "submodelElements": [
+        {
+          "idShort": "X______TechnicalPropertyAreas",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "Table_Size",
+              "modelType": "Property",
+              "value": "600x380mm",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Grinding_wheel_power",
+              "modelType": "Property",
+              "value": "7.5KW",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Grinding_Speed",
+              "modelType": "Property",
+              "value": "4500RPM",
+              "valueType": "xs:string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/HandoverDocumentation_GRINDER_94",
+      "submodelElements": [
+        {
+          "idShort": "Document",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "FileName",
+              "modelType": "Property",
+              "value": "manual.pdf",
+              "valueType": "xs:string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

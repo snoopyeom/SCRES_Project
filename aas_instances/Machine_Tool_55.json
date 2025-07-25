@@ -1,0 +1,277 @@
+{
+  "assetAdministrationShells": [
+    {
+      "modelType": "AssetAdministrationShell",
+      "id": "https://example.com/aas/Machine_Tool_55",
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": "http://example.com/asset/Machine_Tool_55"
+      },
+      "submodels": [
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/TechnicalData_Machine_Tool_55"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Nameplate_Machine_Tool_55"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/HandoverDocumentation_Machine_Tool_55"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Category_Machine_Tool_55"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Operation_Machine_Tool_55"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Nameplate_Machine_Tool_55",
+      "submodelElements": [
+        {
+          "idShort": "URIOfTheProduct",
+          "modelType": "Property",
+          "value": "http://example.com/product",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ManufacturerName",
+          "modelType": "MultiLanguageProperty",
+          "value": [
+            {
+              "language": "en",
+              "text": "HWACHEON"
+            }
+          ]
+        },
+        {
+          "idShort": "ManufacturerProductDesignation",
+          "modelType": "MultiLanguageProperty",
+          "value": [
+            {
+              "language": "en",
+              "text": "T-2"
+            }
+          ]
+        },
+        {
+          "idShort": "AddressInformation",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "Street",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "1043 Kaiser Rd SW, Olympia, Washington"
+                }
+              ]
+            },
+            {
+              "idShort": "Zipcode",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "00000"
+                }
+              ]
+            },
+            {
+              "idShort": "CityTown",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "N/A"
+                }
+              ]
+            },
+            {
+              "idShort": "NationalCode",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "KR"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "idShort": "OrderCodeOfManufacturer",
+          "modelType": "Property",
+          "value": "NA",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "SerialNumber",
+          "modelType": "Property",
+          "value": "Machine Tool",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "YearOfConstruction",
+          "modelType": "Property",
+          "value": "2024",
+          "valueType": "xs:string"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Category_Machine_Tool_55",
+      "submodelElements": [
+        {
+          "idShort": "MachineType",
+          "modelType": "Property",
+          "value": "선반",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "MachineRole",
+          "modelType": "Property",
+          "value": "Production",
+          "valueType": "xs:string"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Operation_Machine_Tool_55",
+      "submodelElements": [
+        {
+          "idShort": "MachineStatus",
+          "modelType": "Property",
+          "value": "Running",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ProcessOrder",
+          "modelType": "Property",
+          "value": "1",
+          "valueType": "xs:int"
+        },
+        {
+          "idShort": "ProcessID",
+          "modelType": "Property",
+          "value": "P001",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ReplacedAASID",
+          "modelType": "Property",
+          "value": "None",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "Candidate",
+          "modelType": "Property",
+          "value": "true",
+          "valueType": "xs:boolean"
+        },
+        {
+          "idShort": "Selected",
+          "modelType": "Property",
+          "value": "false",
+          "valueType": "xs:boolean"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/TechnicalData_Machine_Tool_55",
+      "submodelElements": [
+        {
+          "idShort": "X____TechnicalPropertyAreas",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "Size",
+              "modelType": "Property",
+              "value": "2180W x 3100L x 2100H",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Swing_over_bed",
+              "modelType": "Property",
+              "value": "Ø880",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "DC",
+              "modelType": "Property",
+              "value": "460mm",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Spindle_Speed",
+              "modelType": "Property",
+              "value": "5000RPM",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Spindle_Power",
+              "modelType": "Property",
+              "value": "15KW",
+              "valueType": "xs:string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/HandoverDocumentation_Machine_Tool_55",
+      "submodelElements": [
+        {
+          "idShort": "Document",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "FileName",
+              "modelType": "Property",
+              "value": "manual.pdf",
+              "valueType": "xs:string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

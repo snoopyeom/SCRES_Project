@@ -1,0 +1,277 @@
+{
+  "assetAdministrationShells": [
+    {
+      "modelType": "AssetAdministrationShell",
+      "id": "https://example.com/aas/Machine_Tool_49",
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": "http://example.com/asset/Machine_Tool_49"
+      },
+      "submodels": [
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Nameplate_Machine_Tool_49"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Operation_Machine_Tool_49"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/HandoverDocumentation_Machine_Tool_49"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/TechnicalData_Machine_Tool_49"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://example.com/submodel/Category_Machine_Tool_49"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Nameplate_Machine_Tool_49",
+      "submodelElements": [
+        {
+          "idShort": "URIOfTheProduct",
+          "modelType": "Property",
+          "value": "http://example.com/product",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ManufacturerName",
+          "modelType": "MultiLanguageProperty",
+          "value": [
+            {
+              "language": "en",
+              "text": "MAZAK"
+            }
+          ]
+        },
+        {
+          "idShort": "ManufacturerProductDesignation",
+          "modelType": "MultiLanguageProperty",
+          "value": [
+            {
+              "language": "en",
+              "text": "VCN-700D"
+            }
+          ]
+        },
+        {
+          "idShort": "AddressInformation",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "Street",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "11755 S Austin Ave, Alsip, Illinois"
+                }
+              ]
+            },
+            {
+              "idShort": "Zipcode",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "00000"
+                }
+              ]
+            },
+            {
+              "idShort": "CityTown",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "N/A"
+                }
+              ]
+            },
+            {
+              "idShort": "NationalCode",
+              "modelType": "MultiLanguageProperty",
+              "value": [
+                {
+                  "language": "en",
+                  "text": "KR"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "idShort": "OrderCodeOfManufacturer",
+          "modelType": "Property",
+          "value": "NA",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "SerialNumber",
+          "modelType": "Property",
+          "value": "Machine Tool",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "YearOfConstruction",
+          "modelType": "Property",
+          "value": "2024",
+          "valueType": "xs:string"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Category_Machine_Tool_49",
+      "submodelElements": [
+        {
+          "idShort": "MachineType",
+          "modelType": "Property",
+          "value": "밀링",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "MachineRole",
+          "modelType": "Property",
+          "value": "Production",
+          "valueType": "xs:string"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/Operation_Machine_Tool_49",
+      "submodelElements": [
+        {
+          "idShort": "MachineStatus",
+          "modelType": "Property",
+          "value": "Running",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ProcessOrder",
+          "modelType": "Property",
+          "value": "1",
+          "valueType": "xs:int"
+        },
+        {
+          "idShort": "ProcessID",
+          "modelType": "Property",
+          "value": "P001",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "ReplacedAASID",
+          "modelType": "Property",
+          "value": "None",
+          "valueType": "xs:string"
+        },
+        {
+          "idShort": "Candidate",
+          "modelType": "Property",
+          "value": "true",
+          "valueType": "xs:boolean"
+        },
+        {
+          "idShort": "Selected",
+          "modelType": "Property",
+          "value": "false",
+          "valueType": "xs:boolean"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/TechnicalData_Machine_Tool_49",
+      "submodelElements": [
+        {
+          "idShort": "X____TechnicalPropertyAreas",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "Size",
+              "modelType": "Property",
+              "value": "4100W x 3724L x 2591H",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Table_Size",
+              "modelType": "Property",
+              "value": "1740mm x 700mm",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Spindle_motor",
+              "modelType": "Property",
+              "value": "30KW",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Spindle_speed",
+              "modelType": "Property",
+              "value": "8000RPM",
+              "valueType": "xs:string"
+            },
+            {
+              "idShort": "Travel_distance_X_Y_Z_",
+              "modelType": "Property",
+              "value": "1530mm x 700mm x 650mm",
+              "valueType": "xs:string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "id": "https://example.com/submodel/HandoverDocumentation_Machine_Tool_49",
+      "submodelElements": [
+        {
+          "idShort": "Document",
+          "modelType": "SubmodelElementCollection",
+          "value": [
+            {
+              "idShort": "FileName",
+              "modelType": "Property",
+              "value": "manual.pdf",
+              "valueType": "xs:string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
