@@ -80,9 +80,9 @@ event_server.MongoClient = _shared_mongo
 event_server.mqtt.Client = FakeMQTTClient
 
 # 기본 설정
-MONGO_URI = 'mongodb://localhost'
-DB_NAME = 'aas'
-COL_NAME = 'instances'
+MONGO_URI = "mongodb://localhost:27017"
+DB_NAME = "test_db"
+COL_NAME = "aas_documents"
 BROKER_URL = 'mqtt://localhost'
 
 logging.basicConfig(level=logging.INFO)
