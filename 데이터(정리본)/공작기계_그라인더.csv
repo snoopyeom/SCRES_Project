@@ -1,0 +1,18 @@
+Type,Equipment,name,Brand,Table_Size,Grinding wheel power,Grinding_Speed,Location,Company
+Flat surface grinder,GRINDER,20AD-36,Blanchard,None,37KW,720RPM,"240 E Rosecrans Ave, Gardena, California",TCI Precision Metals
+Flat surface grinder,GRINDER,22AD-42,Blanchard,None,37KW,720RPM,"240 E Rosecrans Ave, Gardena, California",TCI Precision Metals
+Flat surface grinder,GRINDER,32HD-60,SPNK,None,74KW,720RPM,"240 E Rosecrans Ave, Gardena, California",TCI Precision Metals
+Flat surface grinder,GRINDER,BD-12,SKNK,1219x609mm,11.9KW,None,"240 E Rosecrans Ave, Gardena, California",TCI Precision Metals
+Flat surface grinder,GRINDER,ID-400,OVERBECK,425x475mm,None,None,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Cylindrical grinder,GRINDER,75-s2,USACH,2091x1481mm,None,None,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Cylindrical grinder,GRINDER,LIBERTY II,Parker Majestic,127x965.2mm,18.5KW,1000RPM,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Cylindrical grinder,GRINDER,CN148P4,Rollomatic,1830x2040mm,1.5KW,3000RPM,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Flat surface grinder,GRINDER,s35-400,Hauser,600x380mm,7.5KW,4500RPM,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Flat surface grinder,GRINDER,FSG-3A1224H,CHEVALIER,305 x 610mm,3.7KW,1100RPM,450 Whitney Road West,Nifty Bar
+CNC Grinder,GRINDER,G18,Moore,279 x 610mm,None,9000RPM,"2904 Scott Blvd, Santa Clara, California",M&M Jig Grinding
+Flat surface grinder,GRINDER,618-HR,Reid,152 x 457mm,None,3600RPM,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Flat surface grinder,GRINDER,KGS-818AH,KENT USA,203 x 457mm,2.2KW,3580RPM,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+Flat surface grinder,GRINDER,815,Bridgeport,203 x 381mm,1.2KW,3600RPM,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+Flat surface grinder,GRINDER,H612,Boyar-Schultz,152 x 305mm,0.7KW,3000RPM,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+Flat surface grinder,GRINDER,350,Grand Rapids,203 x 610mm,2.2KW,1985RPM,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+Flat surface grinder,GRINDER,ACC16-32DX,Okamoto,406 x 813mm,3.7KW,1500RPM,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR

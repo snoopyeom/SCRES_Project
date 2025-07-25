@@ -1,0 +1,36 @@
+Type,Equipment,name,Brand,Size,Swing over bed,DC,Spindle_Speed,Spindle_Power,Location,Company
+CNC LATHE,Machine Tool,SL-2H,Mori Seiki,3988W x 1651L x 1880H,ик569,406mm,4000RPM,15KW,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+CNC LATHE,Machine Tool,HL-4,HAAS,559W x 2337L x 1143H,ик610,864mm,3500RPM,22KW,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+CNC LATHE,Machine Tool,SL 25(500),Samsung,None,ик521,378mm,3500RPM,22KW,"5349 W 161st St, Cleveland, Ohio",Criterion
+CNC LATHE,Machine Tool,Puma 2600 SY II ,Doosan,1945W  x 3560L x 2163H,ик376,760mm,4000RPM,22KW,"5349 W 161st St, Cleveland, Ohio",Criterion
+LATHE,Machine Tool,T-2,HWACHEON,2180W x 3100L x 2100H,ик880,460mm,5000RPM,15KW,"1043 Kaiser Rd SW, Olympia, Washington",dti EXACT
+CNC LATHE,Machine Tool,LZ-01R,Miyano,2896W x 1448L x 1702H,ик320,89mm,6000RPM,10KW,"7081 International Dr, Louisville, Kentucky",MIYAMA
+CNC LATHE,Machine Tool,STORM A50,Clausing,1016W x 610L x 2403H,ик406,171mm,4000RPM,4KW,"7081 International Dr, Louisville, Kentucky",MIYAMA
+CNC LATHE,Machine Tool,GTC-20,Leadwell,None,ик380,300mm,5000RPM,11KW,"7081 International Dr, Louisville, Kentucky",MIYAMA
+CNC LATHE,Machine Tool,Lynx 220C,Doosan,1600W x .2325L x 1655H,ик320,305mm,4000RPM,15KW,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+CNC LATHE,Machine Tool,Puma 300C,Doosan,4572W x 2159L x 2311H,ик570,630mm,2800RPM,26KW,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+CNC LATHE,Machine Tool,Puma 250L,Doosan,3810W x 1956L x 2032H,ик569,399mm,3500RPM,22KW,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+CNC LATHE,Machine Tool,Puma 480L,Doosan,6325W x 2210L x 2184H,ик899,899mm,1500RPM,45KW,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+CNC LATHE,Machine Tool,Integrex i-200s,Mazak,None,ик658,1011mm,5000RPM,22KW,"11663 McKinney Rd, Titusville, Pennsylvania",Precision Profiles
+CNC LATHE,Machine Tool,MEGATURN NEXUS 900,Mazak,2375W x 3390L x 3639H,ик1000,920mm,1250RPM,30KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Neo-20EX,O-M,None,ик2500,2500mm,230RPM,37KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,MEGATURN A-16N,Mazak,6223W x 5486L x 5004H,ик2032,1880mm,1500RPM,45KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Quick Turn Nexus 250-II MSY,Mazak,1900W x 2850L x 2000H,ик696,380mm,4000RPM,26KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Quick Turn 30,Mazak,1930W x 3226L x 1845h,ик510,310mm,3300RPM,22KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Quick Turn 250,Mazak,1800w x 3800L x 2000H,ик610,399mm,4000RPM,26KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Quick Turn 350,Mazak,None,ик680,420mm,4000RPM,30KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Quick Turn Nexus 450-II M,Mazak,1700W x 5000L x 2100H,ик846,680mm,2000RPM,30KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,ST30,HAAS,2290W x 4350L x 2490H,ик533,381mm,3400RPM,22KW,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+CNC LATHE,Machine Tool,Puma-300 LC,Daewoo,1905W x 3607L x 2159H,ик589,400mm,2800RPM,22KW,"10908 County Rd 419, Texas",ELLWOOD
+CNC LATHE,Machine Tool,TUE-150,TOSHIBA,5960W x 3970L x 5400H,ик2000,1450mm,3000RPM,45KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,TUE-15,TOSHIBA,4140W x 4978L x 4927H,ик1800,1500mm,300RPM,37KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,GLX16,GURUTZPE,3500W x 13500L x 3100H,ик1600,1500mm,800RPM,88KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,LH 35-N,OKUMA,178W x 457L x 140H,ик645,1524mm,2200RPM,22KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,LB25,OKUMA,2620W x 4865L x 2100H,ик480,250mm,3500RPM,15KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,Integrex i-200s,MAZAK,2082W x 3479L x 2413H,ик668,1018mm,6000RPM,22KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,SLANT 60,MAZAK,2794W x 7188L x 2413H,ик914,4242mm,1000RPM,45KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,SLANT 50,MAZAK,2438W x 7061L x 2464H,ик660,1000mm,1600RPM,37KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,NEXUS 500,MAZAK,2440W x 6075L x 2461H,ик1040,2997mm,1600RPM,46KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,NEXUS 450,MAZAK,2286W x 4978L x 2032H,ик578,4242mm,2000RPM,37KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,SL-403,Mori Seiki,3789W x 2338L x 2455H,ик620,1524mm,1900RPM,22KW,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+CNC LATHE,Machine Tool,Cincom L20,Citizen,1730W x 2300L x 1050H,ик200,None,10000RPM,3.7KW,"6811 E Mission Ave, Spokane Valley, Washington",Berg Manufacturing

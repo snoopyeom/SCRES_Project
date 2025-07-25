@@ -1,0 +1,51 @@
+Type,Equipment,name,Brand,Size,Table_Size,Spindle_motor,Spindle_speed,Travel_distance(X/Y/Z),Location,Company
+Vertical Machining Center,Machine Tool,VM5020,Milltronics,2845W x 2764L x 2591H,1320mm x 508mm,11KW,10000RPM,1270mm x 508mm x 508mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Vertical Machining Center,Machine Tool,VM16,Milltronics,2362W x 2362L x 2794H,1143mm x 508mm,18KW,8000RPM,762mm x 508mm x 508mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Horizontal Machining Center,Machine Tool,ES-5-4-AX,HAAS,None,1321mm x 508mm,15KW,12000RPM,1016mm x 559mm x 457mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Vertical Machining Center,Machine Tool,VM30,Milltronics,None,1676mm x 762 mm,18KW,8000RPM,1524mm x 762mm x 610mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Horizontal Machining Center,Machine Tool,HS-1,HAAS,3632W x 2794L x 2820H,None,15KW,7500RPM,610mm x 508mm x 559mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Vertical Machining Center,Machine Tool,Series II,Bridgeport,2432W x 1753L x 2108H,1473mm x 279mm,3KW,3500 RPM,851mm x 381mm x 406mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Vertical Machining Center,Machine Tool,RW-14,Milltronics,1854W x 1854H x 2235L,762mm x 356mm,11KW,8000RPM,610mm x 356mm x 521mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Horizontal Machining Center,Machine Tool,EC-500,HAAS,5840W x 3200L x 3000H,928mm x 749mm,22KW,7500RPM,813mm x 635mm 711mm,"323 E Roosevelt Ave, Zeeland, Michigan",PROCAM
+Vertical Machining Center,Machine Tool,VM 40 II,HITACHI SEIKI,2330W x 2085L x 2550H,760mm x 410 mm,None,8000RPM,559mm x 406mm x 406mm,"5349 W 161st St, Cleveland, Ohio",Criterion
+Vertical Machining Center,Machine Tool,MyCenter-2Xi,Kitamura,2165W x 24232L x 2825H,768mm x 355 mm,11KW,10000RPM,511mm x 356mm x 460mm,"5349 W 161st St, Cleveland, Ohio",Criterion
+Vertical Machining Center,Machine Tool,DMU-50,DMG,2337W x 2845L x 2743H,630mm x 500 mm,20KW,10000RPM,498mm x 450mm x 400mm,"5349 W 161st St, Cleveland, Ohio",Criterion
+Vertical Machining Center,Machine Tool,DuraVertical 5100,Mori Seiki,2718W x 2311L x 2667H,1349mm x 599 mm,11KW,12000RPM,1049mm x 531mm x 511mm,"5349 W 161st St, Cleveland, Ohio",Criterion
+CNC Machining Center,Machine Tool,VF-1,HAAS,2570W x 2510L x 2570H,660mm x 356mm,22KW,8100RPM,508mm x 406mm x 508mm,"1043 Kaiser Rd SW, Olympia, Washington",dti EXACT
+CNC Machining Center,Machine Tool,VF-3,HAAS,3870W 2510L x 2690H,1219mm x 457 mm,22KW,8100RPM,1016mm x 508mm x 635mm,"1043 Kaiser Rd SW, Olympia, Washington",dti EXACT
+CNC Machining Center,Machine Tool,KVR 1824,Kent,2896W x 2347L x 2713H,760mm x 460 mm,None,10000RPM,610mm x 460mm x 480mm,"7081 International Dr, Louisville, Kentucky",MIYAMA
+Vertical Machining Center,Machine Tool,F-23,Aurora Seiki,2255W x 1900L x 2370H,650mm x 420mm,8KW,10000RPM,580mm x 420mm x 510mm,"7081 International Dr, Louisville, Kentucky",MIYAMA
+Vertical Machining Center,Machine Tool,TC-510,LK,2540W x 1676L x 2438H,650mm x 420mm,5KW,12000RPM,510mm x 410mm x 360mm,"7081 International Dr, Louisville, Kentucky",MIYAMA
+CNC Machining Center,Machine Tool,TSV 35,Miyano,1880W x 1499L x 2718H,640mm x 380mm,5KW,8000RPM,485mm x 360mm x 225mm,"7081 International Dr, Louisville, Kentucky",MIYAMA
+Vertical Machining Center,Machine Tool,VMC 2216FX,Fadal,2134W x 2489L x 2743H,410mm x 990mm,11KW,10000RPM,560mm x 460mm x 510mm,"7081 International Dr, Louisville, Kentucky",MIYAMA
+Vertical Machining Center,Machine Tool,DNM 650 II,Doosan,3350W x 2792L x 2815H,1300mm x 670mm ,11KW,8000RPM,1270mm x 670mm x 625mm,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Vertical Machining Center,Machine Tool,V55,Makino,2400W x 3113L x 3140H,500mm x 1000mm,22KW,20000RPM,900mm x 500mm x 450mm,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+Vertical Machining Center,Machine Tool,NV5000,Mori Seiki,3040W x 2788L x 2603H,1320mm x 660mm,22KW,14000RPM,1020mm x 510mm x 510mm,"196 Alwine Rd, Saxonburg, Pennsylvania",PENN UNITED
+JIG MILLING,Machine Tool,2B-36,Devlieg,2743W x 2896L x 2083H,610mm x 914mm,3.7KW,2000RPM,None,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+Vertical Machining Center,Machine Tool,VCS 530C,MAZAK,2950W x 2929L x 2870H,1300mm x 550mm,19KW,12000RPM,1050mm x 530mm x 510mm,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+CNC Machining Center,Machine Tool,NVD 5000,Mori Seiki,2788W x 3040L x 2603H,1092mm x 599mm,11KW,20000RPM,1016mm x 508mm x 508mm,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+CNC Machining Center,Machine Tool,DMP-5,Trak,2388W x 1803L x 2388H,305mm x 1270mm,3.7KW,3950RPM,1016mm x 508mm x 570mm,"2019 Wood-Bridge Blvd, Bowling Green, Ohio",CENTAUR
+Vertical Machining Center,Machine Tool,V-20,MAZAK,None,750mm x 2896mm,15KW,4500RPM,2591mm x 787mm x 762mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Vertical Machining Center,Machine Tool,V-515,MAZAK,3454W x 3277L x 3048H,1295mm x 550mm,19KW,6000RPM,1050mm x 508mm x 559mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Vertical Machining Center,Machine Tool,AJV 60_120,MAZAK,3700W x 8200L x 3300H,3100mm x 1600mm,26KW,10000RPM,3200mm x 1400mm x 500mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Vertical Machining Center,Machine Tool,FJV 60_160,MAZAK,3585W x 10470L x 3566H,4000mm x 1250mm,30KW,6000RPM,4200mm x 1400mm x 660mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Vertical Machining Center,Machine Tool,AJV-18,MAZAK,2200W x 2350L x 2600H,406mm x 889mm,9KW,10000RPM,560mm x 410mm x 400mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Vertical Machining Center,Machine Tool,V-655_80,MAZAK,4140W x 5512L x 3175H,635mm x 2235mm,19KW,6000RPM,2032mm x 650mm x 648mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Vertical Machining Center,Machine Tool,VF-10,HAAS,2591W x 7315L x 3302H,3048mm x 813mm,22KW,8100RPM,3048mm x 813mm x 762mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Horizontal Machining Center,Machine Tool,BF-130B,Toshiba,13870W x 4535L x 6850H,2500mm x 2000mm,22KW,1600RPM,8992mm x 3500mm x 2134mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Horizontal Machining Center,Machine Tool,BF-130.R22,Toshiba,7450W x 9500L x 5215H,1800mm x 2200mm,30KW,2500RPM,3556mm x 2286mm x 1524mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Horizontal Machining Center,Machine Tool,BP-150.R22,Toshiba,7620W x 10210L x 5215H,1800mm x 2200mm,37KW,2500RPM,4064mm x 2540mm x 1524mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Horizontal Machining Center,Machine Tool,Nexus 5000-II,MAZAK,2330W x 5550L x 2804H,800mm x 1000mm,30KW,12000RPM,730mm x 730mm x 740mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Horizontal Machining Center,Machine Tool,FH10800,MAZAK,4253W x 6900L x 3253H,1000mm x 1000mm,37KW,7000RPM,1700mm x 1400mm x 1400mm,"931 Merwin Road, Pennsylvania",EDGAR INDUSTRIES
+Horizontal Machining Center,Machine Tool,FA800,Toyoda,4521W x 6960L x 4191H,800mm x 800mm,30KW,6000RPM,1346mm x 1148mm x 1148mm,"10908 County Rd 419, Texas",ELLWOOD
+Horizontal Machining Center,Machine Tool,FA1050,Toyoda,1849W x 1849L x 1550H,1049mm x 1049mm,30KW,10000RPM,1600mm x 1397mm x 1143mm,"10908 County Rd 419, Texas",ELLWOOD
+Horizontal Machining Center,Machine Tool,HB-130,HNK,8152W x 9323L x 4920H,2000mm x 2200mm,26KW,2500RPM,3000mm x 2000mm x 1300mm,"10908 County Rd 419, Texas",ELLWOOD
+Horizontal Machining Center,Machine Tool,KBT-13,KURAKI,6830W x 6800L x 5100H,1800mm x 2200mm,22KW,3000RPM,3000mm x 1981mm x 1295mm,"10908 County Rd 419, Texas",ELLWOOD
+Horizontal Machining Center,Machine Tool,BTH-130,Toshiba,6950W x 7250L x 5050H,2000mm x 2400mm,19KW,4000RPM,3000mm x 2300mm x 2600mm,"10908 County Rd 419, Texas",ELLWOOD
+Vertical Machining Center,Machine Tool,DMC-2100H,Johnford,3300W x 6515L x 3800H,2200mm x 1100mm,20KW,15000RPM,2050mm x 1295mm x 800mm,"10908 County Rd 419, Texas",ELLWOOD
+Vertical Machining Center,Machine Tool,650VX,Enshu,None,650mm x 1999mm,15KW,6000RPM,1600mm x 660mm x 660mm,"10908 County Rd 419, Texas",ELLWOOD
+Horizontal Machining Center,Machine Tool,BP-130 R22,Toshiba,7450W x 9500L x 5215H,1800mm x 2200mm,30KW,2500RPM,3556mm x 2286mm x 1524mm,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+Horizontal Machining Center,Machine Tool,SpeedRam2000,PAMA,18000W x 6000L x 1500H,3000mm x 3500mm,91KW,2500PRM,13000mm x 5000mm x 1200mm,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+Horizontal Machining Center,Machine Tool,FH 8800,MAZAK,6900W x 4300L x 3500H,800mm x 800mm,30KW,7000RPM,1300mm x 1100mm x 1000mm,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+Vertical Machining Center,Machine Tool,VCN-700D,MAZAK,4100W x 3724L x 2591H,1740mm x 700mm,30KW,8000RPM,1530mm x 700mm x 650mm,"11755 S Austin Ave, Alsip, Illinois",KOCSIS
+Horizontal Machining Center,Machine Tool,408MT,Willemin Macodel,1450W x 1980L x 2100H,550mm x 160mm,15KW,30000RPM,250mm x 200mm x 310mm,"6811 E Mission Ave, Spokane Valley, Washington",Berg Manufacturing
