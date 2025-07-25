@@ -278,7 +278,7 @@ def load_machines_from_mongo(
             submodels_index[key] = sm.get("submodelElements", [])
 
         if verbose:
-            # print(f"[DEBUG] Found submodels: {list(submodels_index.keys())}")
+            print(f"[DEBUG] Found submodels: {list(submodels_index.keys())}")
 
         address = None
         process = "Unknown"
@@ -307,7 +307,7 @@ def load_machines_from_mongo(
         coords = geocode_address(address) if address else None
         if not coords:
             if verbose:
-                # print(f"[DEBUG] 좌표 변환 실패: {address}")
+                print(f"[DEBUG] 좌표 변환 실패: {address}")
             continue
 
         # 7) Machine 객체 생성
