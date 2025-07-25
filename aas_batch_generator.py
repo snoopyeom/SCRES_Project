@@ -23,7 +23,7 @@ def sanitize_id_short(s: str) -> str:
         s = "X_" + s
     return s
 
-from basyx.aas.model.reference import ReferenceTypes
+from basyx.aas.model.base import KeyTypes
 
 def ref_from_keys(keys):
     """Return a ``ModelReference`` built from ``keys``.
@@ -35,7 +35,7 @@ def ref_from_keys(keys):
     """
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
-    ref_type = ReferenceTypes.SUBMODEL if len(keys) == 1 else ReferenceTypes.SUBMODELELEMENT
+    ref_type = KeyTypes.SUBMODEL if len(keys) == 1 else KeyTypes.SUBMODEL_ELEMENT
     return ModelReference(ref_type, keys)
 
 def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
