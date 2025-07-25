@@ -95,9 +95,9 @@ def upload_aas_documents(upload_dir: str, mongo_uri: str, db_name: str, collecti
                 logger.warning("⚠️ %s JSON 파싱 실패: %s", filename, exc)
                 continue
 
-            # 필수 필드가 있는지 확인하여 유효성 체크
-            if not isinstance(content, dict) or "assetAdministrationShells" not in content:
-                logger.warning("⚠️ %s → 유효한 AAS JSON 구조가 아님 (필수 키 없음)", filename)
+            # 간단한 JSON이라도 그대로 업로드한다. 테스트용으로 최소한의 구조만 있어도 허용.
+            if not isinstance(content, dict):
+                logger.warning("⚠️ %s JSON 구조가 객체가 아님", filename)
                 continue
 
             # 구조 업로드 (raw와 파싱된 json 동시 저장)
