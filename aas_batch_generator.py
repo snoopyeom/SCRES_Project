@@ -30,7 +30,7 @@ def _infer_ref_class(key_type: KeyTypes):
     """Map ``KeyTypes`` to the corresponding basyx model class."""
     return {
         KeyTypes.SUBMODEL: model.Submodel,
-        KeyTypes.SUBMODELELEMENT: model.SubmodelElement,
+        KeyTypes.SUBMODEL_ELEMENT: model.SubmodelElement,
         KeyTypes.PROPERTY: model.Property,
     }.get(key_type, model.Referable)
 
