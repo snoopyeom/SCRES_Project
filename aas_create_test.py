@@ -24,14 +24,21 @@ def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
         value=LangStringSet({lang: text})
     )
 
+def _infer_ref_class(key_type: model.KeyTypes):
+    return {
+        model.KeyTypes.SUBMODEL: model.Submodel,
+        model.KeyTypes.SUBMODELELEMENT: model.SubmodelElement,
+        model.KeyTypes.PROPERTY: model.Property,
+    }.get(key_type, model.Referable)
+
+
 def ref_from_keys(keys):
     """Helper creating ``ModelReference`` from ``keys`` for all SDK versions."""
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
-    try:
-        return ModelReference(keys=keys)
-    except TypeError:
-        return ModelReference(keys)
+
+    ref_cls = _infer_ref_class(keys[-1].type_)
+    return ModelReference(tuple(keys), ref_cls)
 
 # Submodel 생성 함수들
 

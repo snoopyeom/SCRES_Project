@@ -25,18 +25,29 @@ def sanitize_id_short(s: str) -> str:
 
 from basyx.aas.model.base import KeyTypes
 
+
+def _infer_ref_class(key_type: KeyTypes):
+    """Map ``KeyTypes`` to the corresponding basyx model class."""
+    return {
+        KeyTypes.SUBMODEL: model.Submodel,
+        KeyTypes.SUBMODELELEMENT: model.SubmodelElement,
+        KeyTypes.PROPERTY: model.Property,
+    }.get(key_type, model.Referable)
+
+
 def ref_from_keys(keys):
     """Return a ``ModelReference`` built from ``keys``.
 
     ``basyx`` 버전마다 ``ModelReference`` 초기화 방식이 달라 이를 호환하기
     위해 사용되는 헬퍼 함수이다. ``ModelReference.from_keys``가 존재하면 그걸
-    사용하고, 그렇지 않은 경우에는 타입을 명시하여 ``ModelReference``를 직접
+    사용하고, 그렇지 않은 경우에는 타입을 추정하여 ``ModelReference``를 직접
     생성한다.
     """
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
-    ref_type = KeyTypes.SUBMODEL if len(keys) == 1 else KeyTypes.SUBMODEL_ELEMENT
-    return ModelReference(ref_type, keys)
+
+    ref_cls = _infer_ref_class(keys[-1].type_)
+    return ModelReference(tuple(keys), ref_cls)
 
 def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
     return MultiLanguageProperty(id_short=id_short, value=LangStringSet({lang: str(text)}))
