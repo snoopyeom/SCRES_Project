@@ -58,6 +58,9 @@ TYPE_PROCESS_MAP = {
     "Cylindrical grinder": "Grinding",
     "Assembly System": "Assembly",
     "그라인더": "Grinding",
+    "단조": "Forging",
+    "밀링": "Milling",
+    "선반": "Turning",
 }
 
 @dataclass
