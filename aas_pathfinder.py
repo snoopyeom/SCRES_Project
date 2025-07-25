@@ -21,9 +21,26 @@ except Exception:
     Nominatim = None
     GeocoderServiceError = Exception
 
+# 좌표 조회에 외부 네트워크가 필요한데, 실행 환경에 따라 geopy 사용이
+# 불가능한 경우가 많다. 경로 최적화를 안정적으로 수행하기 위해 사용되는
+# 모든 주소의 위도/경도 값을 미리 정의한다. 값은 대략적인 위치만 알면
+# 되므로 소수점 세 자리 정도의 정밀도로 기입하였다.
 ADDRESS_COORDS: Dict[str, Tuple[float, float]] = {
     "6666 W 66th St, Chicago, Illinois": (41.772, -87.782),
     "2904 Scott Blvd, Santa Clara, California": (37.369, -121.972),
+    "2019 Wood-Bridge Blvd, Bowling Green, Ohio": (41.374, -83.650),
+    "240 E Rosecrans Ave, Gardena, California": (33.901, -118.282),
+    "196 Alwine Rd, Saxonburg, Pennsylvania": (40.757, -79.819),
+    "450 Whitney Road West": (43.069, -77.470),
+    "931 Merwin Road, Pennsylvania": (40.590, -79.620),
+    "5349 W 161st St, Cleveland, Ohio": (41.416, -81.832),
+    "323 E Roosevelt Ave, Zeeland, Michigan": (42.812, -86.004),
+    "1043 Kaiser Rd SW, Olympia, Washington": (47.042, -122.942),
+    "7081 International Dr, Louisville, Kentucky": (38.137, -85.741),
+    "11755 S Austin Ave, Alsip, Illinois": (41.681, -87.736),
+    "11663 McKinney Rd, Titusville, Pennsylvania": (41.605, -79.652),
+    "6811 E Mission Ave, Spokane Valley, Washington": (47.666, -117.315),
+    "10908 County Rd 419, Texas": (30.588, -96.214),
 }
 
 IRDI_PROCESS_MAP = {
@@ -101,9 +118,22 @@ def upload_aas_documents(upload_dir: str, mongo_uri: str, db_name: str, collecti
 # ────────────────────────────────────────────────────────────────
 # ────────────────────────────────────────────────────────────────
 def geocode_address(address: str) -> Optional[Tuple[float, float]]:
-    """주소 문자열을 받아 위도·경도로 변환"""
+    """주소 문자열을 위도/경도로 변환한다.
+
+    1. 미리 정의한 ``ADDRESS_COORDS`` 사전을 우선 조회한다.
+    2. geopy가 설치된 경우 Nominatim 서비스를 이용하여 조회한다.
+       (실행 환경에 따라 네트워크 오류가 발생할 수 있으므로 실패하면 ``None``을 반환)
+    """
+    if not address:
+        return None
+
+    # 사전에서 우선 검색
+    if address in ADDRESS_COORDS:
+        return ADDRESS_COORDS[address]
+
     if not Nominatim:
         return None
+
     geolocator = Nominatim(user_agent="aas_locator")
     try:
         loc = geolocator.geocode(address)
