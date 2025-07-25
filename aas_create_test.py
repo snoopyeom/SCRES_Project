@@ -152,6 +152,38 @@ def create_documentation_submodel() -> Submodel:
     return sm
 
 
+def create_mqttbroker_submodel() -> Submodel:
+    """MQTT 브로커 설정 서브모델을 생성합니다."""
+    sm = Submodel(id_="https://example.com/submodel/MQTTBrokerConfig")
+    for elem in [
+        Property(id_short="Address", value_type=datatypes.String, value="mqtt://broker.hivemq.com"),
+        Property(id_short="Topic", value_type=datatypes.String, value="aas/status/")
+    ]:
+        sm.submodel_element.add(elem)
+    return sm
+
+
+def create_basicevent_submodel() -> Submodel:
+    """MachineStatus 변경 이벤트를 정의한 서브모델을 생성합니다."""
+    sm = Submodel(id_="https://example.com/submodel/StatusEvent")
+
+    event = model.BasicEventElement(
+        id_short="StatusChangeEvent",
+        observed=model.ModelReference.from_keys([
+            model.Key(type_=model.KeyTypes.SUBMODELELEMENT, value="MachineStatus")
+        ]),
+        direction="output",
+        state="on",
+        message_topic="aas/status/Machine001",
+        message_broker=model.ModelReference.from_keys([
+            model.Key(type_=model.KeyTypes.SUBMODEL, value="MQTTBrokerConfig")
+        ]),
+        min_interval="PT1S",
+    )
+    sm.submodel_element.add(event)
+    return sm
+
+
 def create_full_aas() -> tuple[AssetAdministrationShell, list[Submodel]]:
     asset_info = AssetInformation(
         asset_kind=model.AssetKind.INSTANCE,
@@ -162,7 +194,9 @@ def create_full_aas() -> tuple[AssetAdministrationShell, list[Submodel]]:
         create_category_submodel(),
         create_operation_submodel(),
         create_technicaldata_submodel(),
-        create_documentation_submodel()
+        create_documentation_submodel(),
+        create_mqttbroker_submodel(),
+        create_basicevent_submodel()
     ]
     aas = AssetAdministrationShell(
         id_="https://example.com/aas/Machine001",
