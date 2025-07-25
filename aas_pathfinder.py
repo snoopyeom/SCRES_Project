@@ -151,7 +151,7 @@ def _find_address(elements, depth=0):
 
     for elem in elements:
         id_short = elem.get("idShort", "").lower()
-        print(f"{prefix}🔍 [depth {depth}] 탐색 중 idShort: {id_short}")
+        # print(f"{prefix}🔍 [depth {depth}] 탐색 중 idShort: {id_short}")
 
         if id_short == "addressinformation":
             value_list = elem.get("value", [])
@@ -160,20 +160,20 @@ def _find_address(elements, depth=0):
                     sub_id = item.get("idShort", "").lower()
                     if sub_id == "street":
                         sub_val = item.get("value")
-                        print(f"{prefix}    🏡 Street 값: {sub_val}")
+                        # print(f"{prefix}    🏡 Street 값: {sub_val}")
                         if isinstance(sub_val, list):
                             for s in sub_val:
                                 if isinstance(s, dict) and "text" in s:
-                                    print(f"{prefix}    ✅ Street → text: {s['text']}")
+                                    # print(f"{prefix}    ✅ Street → text: {s['text']}")
                                     return s["text"]
 
         if isinstance(elem.get("submodelElements"), list):
-            print(f"{prefix}↘️ 재귀 진입: {id_short}")
+            # print(f"{prefix}↘️ 재귀 진입: {id_short}")
             addr = _find_address(elem["submodelElements"], depth + 1)
             if addr:
                 return addr
 
-    print(f"{prefix}⛔ [depth {depth}] 주소 미발견 종료")
+    # print(f"{prefix}⛔ [depth {depth}] 주소 미발견 종료")
     return None
 
 
@@ -183,12 +183,12 @@ def explore_address_structure(elements, depth=0):
     prefix = "  " * depth
     for elem in elements:
         id_short = elem.get("idShort", "")
-        print(f"{prefix}🔎 idShort: {id_short}")
+        # print(f"{prefix}🔎 idShort: {id_short}")
         if "value" in elem:
             val = elem["value"]
-            print(f"{prefix}📦 value type: {type(val)}, value: {val}")
+            # print(f"{prefix}📦 value type: {type(val)}, value: {val}")
         if "submodelElements" in elem:
-            print(f"{prefix}🔁 재귀 진입 → {id_short}")
+            # print(f"{prefix}🔁 재귀 진입 → {id_short}")
             explore_address_structure(elem["submodelElements"], depth + 1)
 
 
@@ -278,7 +278,7 @@ def load_machines_from_mongo(
             submodels_index[key] = sm.get("submodelElements", [])
 
         if verbose:
-            print(f"[DEBUG] Found submodels: {list(submodels_index.keys())}")
+            # print(f"[DEBUG] Found submodels: {list(submodels_index.keys())}")
 
         address = None
         process = "Unknown"
@@ -307,7 +307,7 @@ def load_machines_from_mongo(
         coords = geocode_address(address) if address else None
         if not coords:
             if verbose:
-                print(f"[DEBUG] 좌표 변환 실패: {address}")
+                # print(f"[DEBUG] 좌표 변환 실패: {address}")
             continue
 
         # 7) Machine 객체 생성
