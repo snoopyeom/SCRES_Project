@@ -46,6 +46,8 @@ def ref_from_keys(keys):
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
 
+    key_type = getattr(keys[-1], "type_", getattr(keys[-1], "type", None))
+    ref_cls = _infer_ref_class(key_type)
     ref_cls = _infer_ref_class(keys[-1].type_)
     return ModelReference(tuple(keys), ref_cls)
 
