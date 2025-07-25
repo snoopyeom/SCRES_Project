@@ -28,7 +28,10 @@ def ref_from_keys(keys):
     """Helper creating ``ModelReference`` from ``keys`` for all SDK versions."""
     if hasattr(ModelReference, "from_keys"):
         return ModelReference.from_keys(keys)
-    return ModelReference(keys=keys)
+    try:
+        return ModelReference(keys=keys)
+    except TypeError:
+        return ModelReference(keys)
 
 # Submodel 생성 함수들
 
