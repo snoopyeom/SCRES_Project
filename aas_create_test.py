@@ -24,6 +24,12 @@ def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
         value=LangStringSet({lang: text})
     )
 
+def ref_from_keys(keys):
+    """Helper creating ``ModelReference`` from ``keys`` for all SDK versions."""
+    if hasattr(ModelReference, "from_keys"):
+        return ModelReference.from_keys(keys)
+    return ModelReference(keys=keys)
+
 # Submodel 생성 함수들
 
 def create_nameplate_submodel() -> Submodel:
@@ -169,13 +175,13 @@ def create_basicevent_submodel() -> Submodel:
 
     event = model.BasicEventElement(
         id_short="StatusChangeEvent",
-        observed=model.ModelReference.from_keys([
+        observed=ref_from_keys([
             model.Key(type_=model.KeyTypes.SUBMODELELEMENT, value="MachineStatus")
         ]),
         direction="output",
         state="on",
         message_topic="aas/status/Machine001",
-        message_broker=model.ModelReference.from_keys([
+        message_broker=ref_from_keys([
             model.Key(type_=model.KeyTypes.SUBMODEL, value="MQTTBrokerConfig")
         ]),
         min_interval="PT1S",

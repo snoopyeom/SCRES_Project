@@ -23,6 +23,17 @@ def sanitize_id_short(s: str) -> str:
         s = "X_" + s
     return s
 
+def ref_from_keys(keys):
+    """Return a ``ModelReference`` built from ``keys``.
+
+    Some versions of ``basyx`` expose ``ModelReference.from_keys`` while others
+    expect the keys in the constructor.  This helper provides a consistent
+    interface across versions.
+    """
+    if hasattr(ModelReference, "from_keys"):
+        return ModelReference.from_keys(keys)
+    return ModelReference(keys=keys)
+
 def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
     return MultiLanguageProperty(id_short=id_short, value=LangStringSet({lang: str(text)}))
 
@@ -142,14 +153,14 @@ def make_event_submodel(uid) -> Submodel:
     sm = Submodel(id_=f"https://example.com/submodel/StatusEvent_{uid}")
     event = model.BasicEventElement(
         id_short="StatusChangeEvent",
-        observed=ModelReference.from_keys([
+        observed=ref_from_keys([
             model.Key(type_=model.KeyTypes.SUBMODEL, value=f"https://example.com/submodel/Operation_{uid}"),
             model.Key(type_=model.KeyTypes.PROPERTY, value="MachineStatus"),
         ]),
         direction="output",
         state="on",
         message_topic=f"aas/status/{uid}",
-        message_broker=ModelReference.from_keys([
+        message_broker=ref_from_keys([
             model.Key(type_=model.KeyTypes.SUBMODEL, value=f"https://example.com/submodel/MQTTBrokerConfig_{uid}")
         ]),
         min_interval="PT1S",
