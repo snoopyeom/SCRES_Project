@@ -27,7 +27,7 @@ def mlp(id_short: str, text: str, lang: str = 'en') -> MultiLanguageProperty:
 def _infer_ref_class(key_type: model.KeyTypes):
     return {
         model.KeyTypes.SUBMODEL: model.Submodel,
-        model.KeyTypes.SUBMODELELEMENT: model.SubmodelElement,
+        model.KeyTypes.SUBMODEL_ELEMENT: model.SubmodelElement,
         model.KeyTypes.PROPERTY: model.Property,
     }.get(key_type, model.Referable)
 
@@ -188,7 +188,7 @@ def create_basicevent_submodel() -> Submodel:
     event = model.BasicEventElement(
         id_short="StatusChangeEvent",
         observed=ref_from_keys([
-            model.Key(type_=model.KeyTypes.SUBMODELELEMENT, value="MachineStatus")
+            model.Key(type_=model.KeyTypes.SUBMODEL_ELEMENT, value="MachineStatus")
         ]),
         direction="output",
         state="on",
