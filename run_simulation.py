@@ -87,6 +87,28 @@ BROKER_URL = 'mqtt://localhost'
 
 logging.basicConfig(level=logging.INFO)
 
+# 주소→공장명 매핑 로드
+def load_address_company_map(dir_path: str = '데이터(정리본)') -> dict:
+    mapping = {}
+    if not os.path.isdir(dir_path):
+        return mapping
+    for fname in os.listdir(dir_path):
+        if not fname.endswith('.csv'):
+            continue
+        try:
+            with open(os.path.join(dir_path, fname), encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    addr = (row.get('Location') or '').strip()
+                    comp = (row.get('Company') or '').strip()
+                    if addr and comp and addr not in mapping:
+                        mapping[addr] = comp
+        except Exception:
+            continue
+    return mapping
+
+ADDRESS_COMPANY_MAP = load_address_company_map()
+
 # ────────────────────────────────────────────────────────────
 def compute_and_save(label: str, html_path: str, csv_path: str):
     machines = aas_pathfinder.load_machines_from_mongo(MONGO_URI, DB_NAME, COL_NAME)
@@ -121,11 +143,25 @@ def compute_and_save(label: str, html_path: str, csv_path: str):
     graph = aas_pathfinder.build_graph_from_aas(coords)
     total = 0.0
     rows = []
+    def _addr(machine):
+        aas = machine.data or {}
+        sub_index = {sm.get('id', '').split('/')[-1].lower(): sm.get('submodelElements', []) for sm in aas.get('submodels', [])}
+        key = next((k for k in sub_index if k.startswith(f'nameplate_{machine.name.lower()}')), None)
+        return aas_pathfinder._find_address(sub_index[key]) if key else None
+
+    path_names = []
     for a, b in zip(selected, selected[1:]):
         path, dist = aas_pathfinder.dijkstra_path(graph, a.name, b.name)
         total += dist
-        logging.info('%s → %s: %.1f km', a.name, b.name, dist)
-        rows.append([a.name, b.name, f'{dist:.2f}'])
+        addr_a = _addr(a)
+        addr_b = _addr(b)
+        name_a = ADDRESS_COMPANY_MAP.get(addr_a, a.name)
+        name_b = ADDRESS_COMPANY_MAP.get(addr_b, b.name)
+        logging.info('%s → %s: %.1f km', name_a, name_b, dist)
+        rows.append([name_a, name_b, f'{dist:.2f}'])
+        if not path_names:
+            path_names.append(name_a)
+        path_names.append(name_b)
     logging.info('Total distance: %.1f km', total)
 
     # CSV 저장
@@ -137,6 +173,7 @@ def compute_and_save(label: str, html_path: str, csv_path: str):
         for r in rows:
             writer.writerow([label] + r)
         writer.writerow([label, 'TOTAL', '', f'{total:.2f}'])
+        writer.writerow([label, 'PATH', ' -> '.join(path_names), ''])
 
     # folium 시각화
     try:
@@ -163,7 +200,7 @@ def main():
     t.start()
 
     logging.info('Initial path calculation')
-    compute_and_save('initial', 'process_flow_simulated.html', 'results_simulated.csv')
+    compute_and_save('initial', 'process_flow_simulated.html', 'result.csv')
 
     time.sleep(5)
 
@@ -185,7 +222,7 @@ def main():
     time.sleep(1)
 
     logging.info('Recalculating after fault')
-    compute_and_save('after_fault', 'process_flow_simulated.html', 'results_simulated.csv')
+    compute_and_save('after_fault', 'process_flow_simulated.html', 'result.csv')
 
 if __name__ == '__main__':
     main()
