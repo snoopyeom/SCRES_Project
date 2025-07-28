@@ -165,7 +165,7 @@ def _find_address(elements, depth=0):
                             for s in sub_val:
                                 if isinstance(s, dict) and "text" in s:
                                     # print(f"{prefix}    ✅ Street → text: {s['text']}")
-                                    return s["text"]
+                                    return s["text"].strip()
 
         if isinstance(elem.get("submodelElements"), list):
             # print(f"{prefix}↘️ 재귀 진입: {id_short}")

@@ -204,13 +204,23 @@ def main():
 
     time.sleep(5)
 
-    # 무작위 프로세스 선정 후 고장 처리
-    process = random.choice(['Milling', 'Turning', 'Grinding'])
+    # 무작위 대신 KOCSIS사의 터닝 머신 중 하나를 고장 처리
+    process = 'Turning'
     machines = aas_pathfinder.load_machines_from_mongo(MONGO_URI, DB_NAME, COL_NAME)
-    candidates = [m for m in machines.values() if m.process == process]
+    def _addr(machine):
+        aas = machine.data or {}
+        sub_index = {sm.get('id', '').split('/')[-1].lower(): sm.get('submodelElements', []) for sm in aas.get('submodels', [])}
+        key = next((k for k in sub_index if k.startswith(f'nameplate_{machine.name.lower()}')), None)
+        return aas_pathfinder._find_address(sub_index[key]) if key else None
+
+    candidates = [m for m in machines.values() if m.process == process and ADDRESS_COMPANY_MAP.get(_addr(m)) == 'KOCSIS']
+    if not candidates:
+        logging.info('No KOCSIS turning machine found; falling back to random selection')
+        candidates = [m for m in machines.values() if m.process == process]
     if not candidates:
         logging.info('No machine found for process %s', process)
         return
+
     target = random.choice(candidates)
     logging.info('Faulting machine %s (%s)', target.name, process)
     event_server.mark_as_fault(target.name, MONGO_URI, DB_NAME, COL_NAME)
