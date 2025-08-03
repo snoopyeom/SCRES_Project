@@ -22,10 +22,19 @@ logging.basicConfig(level=logging.INFO)
 
 
 def main():
+    # MongoDB가 비어 있을 수 있으므로 필요 시 AAS 문서를 업로드
     machines = aas_pathfinder.load_machines_from_mongo(MONGO_URI, DB_NAME, COL_NAME)
+    if len(machines) < 2:
+        aas_pathfinder.upload_aas_documents("aas_instances", MONGO_URI, DB_NAME, COL_NAME)
+        machines = aas_pathfinder.load_machines_from_mongo(MONGO_URI, DB_NAME, COL_NAME)
+
+    # 실행 중인 기계를 우선 선택하고 부족하면 임의의 기계를 사용
     running = [m for m in machines.values() if m.status.lower() == "running"]
     if len(running) < 2:
-        logging.info("실행 중인 기계가 2대 이상 필요합니다.")
+        logging.info("실행 중인 기계가 부족하여 임의의 기계를 사용합니다.")
+        running = list(machines.values())
+    if len(running) < 2:
+        logging.info("MongoDB에 2대 이상의 기계 정보가 필요합니다.")
         return
 
     start, end = running[0], running[1]
