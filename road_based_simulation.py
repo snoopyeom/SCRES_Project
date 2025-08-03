@@ -5,6 +5,7 @@
 - osmnx를 이용하여 도로망 기반 최단 경로를 계산.
 - folium을 이용해 경로를 시각화하고 road_map.html로 저장.
 - 총 이동 거리(km)와 경로상의 노드 좌표 리스트를 출력.
+- 기계가 한 대만 있는 경우 해당 기계 위치만 지도에 표시.
 """
 
 import logging
@@ -24,17 +25,30 @@ logging.basicConfig(level=logging.INFO)
 def main():
     # MongoDB가 비어 있을 수 있으므로 필요 시 AAS 문서를 업로드
     machines = aas_pathfinder.load_machines_from_mongo(MONGO_URI, DB_NAME, COL_NAME)
-    if len(machines) < 2:
+    if not machines:
         aas_pathfinder.upload_aas_documents("aas_instances", MONGO_URI, DB_NAME, COL_NAME)
         machines = aas_pathfinder.load_machines_from_mongo(MONGO_URI, DB_NAME, COL_NAME)
 
-    # 실행 중인 기계를 우선 선택하고 부족하면 임의의 기계를 사용
+    # 실행 중인 기계를 우선 선택하고 없으면 임의의 기계를 사용
     running = [m for m in machines.values() if m.status.lower() == "running"]
-    if len(running) < 2:
-        logging.info("실행 중인 기계가 부족하여 임의의 기계를 사용합니다.")
+    if not running:
+        logging.info("실행 중인 기계가 없어 임의의 기계를 사용합니다.")
         running = list(machines.values())
-    if len(running) < 2:
-        logging.info("MongoDB에 2대 이상의 기계 정보가 필요합니다.")
+    if not running:
+        logging.info("MongoDB에 기계 정보가 필요합니다.")
+        return
+
+    # 기계가 한 대뿐이면 해당 위치만 지도에 표시
+    if len(running) == 1:
+        machine = running[0]
+        lat, lon = machine.coords
+        print("총 경로 거리: 0.00 km")
+        print("경로 노드 좌표:")
+        print(f"({lat:.6f}, {lon:.6f})")
+        fmap = folium.Map(location=machine.coords, zoom_start=15)
+        folium.Marker(location=machine.coords, popup=machine.name).add_to(fmap)
+        fmap.save("road_map.html")
+        logging.info("road_map.html 저장 완료")
         return
 
     start, end = running[0], running[1]
@@ -61,7 +75,10 @@ def main():
     for lat, lon in route_coords:
         print(f"({lat:.6f}, {lon:.6f})")
 
-    fmap = ox.plot_route_folium(G, route, route_color="blue", route_width=5)
+    if len(route) >= 2:
+        fmap = ox.plot_route_folium(G, route, route_color="blue", route_width=5)
+    else:
+        fmap = folium.Map(location=start.coords, zoom_start=15)
     folium.Marker(location=start.coords, popup=f"Start: {start.name}").add_to(fmap)
     folium.Marker(location=end.coords, popup=f"End: {end.name}").add_to(fmap)
     fmap.save("road_map.html")
