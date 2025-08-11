@@ -9,6 +9,8 @@ from typing import Dict, Tuple, List, Optional, Any
 from dataclasses import dataclass
 from pymongo import MongoClient
 
+from aas_json_simplifier import simplify_aas_document
+
 from graph import Graph, Node
 from a_star import AStar
 
@@ -74,7 +76,7 @@ class Machine:
 # ────────────────────────────────────────────────────────────────
 # AAS 문서 업로드 함수 추가
 def upload_aas_documents(upload_dir: str, mongo_uri: str, db_name: str, collection_name: str) -> int:
-    """올바르게 파싱된 JSON 구조를 MongoDB에 업로드하고, raw 필드도 함께 저장합니다."""
+    """JSON 파일을 읽어 중복 없이 간소화한 뒤 MongoDB에 저장한다."""
     client = MongoClient(mongo_uri)
     db = client[db_name]
     collection = db[collection_name]
@@ -87,29 +89,25 @@ def upload_aas_documents(upload_dir: str, mongo_uri: str, db_name: str, collecti
 
         try:
             with open(path, "r", encoding="utf-8") as f:
-                raw = f.read()
+                content = json.load(f)
+        except json.JSONDecodeError as exc:
+            logger.warning("⚠️ %s JSON 파싱 실패: %s", filename, exc)
+            continue
+        except Exception as e:
+            logger.warning("⚠️ %s 업로드 중 예외 발생: %s", filename, str(e))
+            continue
 
-            try:
-                content = json.loads(raw)
-            except json.JSONDecodeError as exc:
-                logger.warning("⚠️ %s JSON 파싱 실패: %s", filename, exc)
-                continue
+        if not isinstance(content, dict):
+            logger.warning("⚠️ %s JSON 구조가 객체가 아님", filename)
+            continue
 
-            # 간단한 JSON이라도 그대로 업로드한다. 테스트용으로 최소한의 구조만 있어도 허용.
-            if not isinstance(content, dict):
-                logger.warning("⚠️ %s JSON 구조가 객체가 아님", filename)
-                continue
+        simplified = simplify_aas_document(content)
+        document = {"filename": filename}
+        document.update(simplified)
 
-            # 구조 업로드 (raw와 파싱된 json 동시 저장)
-            document = {
-                "filename": filename,
-                "json": content,
-                "raw": raw,
-            }
-
+        try:
             collection.replace_one({"filename": filename}, document, upsert=True)
             uploaded += 1
-
         except Exception as e:
             logger.warning("⚠️ %s 업로드 중 예외 발생: %s", filename, str(e))
 

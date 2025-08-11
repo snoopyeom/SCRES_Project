@@ -22,7 +22,20 @@ class FakeClient:
         return self.dbs.setdefault(name, FakeDB())
 
 def test_upload_aas_documents(tmp_path):
-    sample = {"foo": "bar"}
+    sample = {
+        "assetAdministrationShells": [
+            {
+                "id": "aas1",
+                "submodels": [
+                    {"type": "ModelReference", "keys": [{"type": "Submodel", "value": "sm1"}]}
+                ],
+            }
+        ],
+        "submodels": [
+            {"id": "sm1", "modelType": "Submodel", "submodelElements": []}
+        ],
+        "raw": "should be removed"
+    }
     (tmp_path / "sample.json").write_text(json.dumps(sample), encoding="utf-8")
     fake_client = FakeClient()
     with mock.patch("aas_pathfinder.MongoClient", return_value=fake_client):
@@ -32,6 +45,8 @@ def test_upload_aas_documents(tmp_path):
     assert collection.calls
     filt, doc, upsert = collection.calls[0]
     assert filt == {"filename": "sample.json"}
-    assert doc["json"] == sample
-    assert doc["raw"] == json.dumps(sample)
+    assert "raw" not in doc
+    assert "submodels" not in doc
+    aas_submodels = doc["assetAdministrationShells"][0]["submodels"]
+    assert aas_submodels[0]["id"] == "sm1"
     assert upsert is True
