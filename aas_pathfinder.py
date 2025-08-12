@@ -102,8 +102,7 @@ def upload_aas_documents(upload_dir: str, mongo_uri: str, db_name: str, collecti
             continue
 
         simplified = simplify_aas_document(content)
-        document = {"filename": filename}
-        document.update(simplified)
+        document = {"filename": filename, "json": simplified}
 
         try:
             collection.replace_one({"filename": filename}, document, upsert=True)
@@ -270,7 +269,7 @@ def load_machines_from_mongo(
 
         # 2) submodels를 URL 끝부분(소문자)으로 인덱싱
         submodels_index: Dict[str, List[Dict[str, Any]]] = {}
-        for sm in aas.get("submodels", []):
+        for sm in shell.get("submodels", []):
             sm_id = sm.get("id", "")
             key = sm_id.split("/")[-1].lower()
             submodels_index[key] = sm.get("submodelElements", [])
